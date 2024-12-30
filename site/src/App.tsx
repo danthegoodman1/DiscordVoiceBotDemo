@@ -49,7 +49,7 @@ function App() {
         }
       }
 
-      mediaRecorder.start(100)
+      mediaRecorder.start(10) // 10ms chunks, needs to be batched at the WS level, any more and it sounds choppy (probably due to the latency being substantially lower than the chunk interval?)
       setIsRecording(true)
     } catch (error) {
       console.error("Error starting stream:", error)
